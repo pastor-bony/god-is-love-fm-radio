@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>GOD is Love FM radio | Sauti ya Faraja</title>    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">        
+    <style>        
+        :root {            
+            --primary-green: #006400; /* Kijani kibichi kilichoiva na chenye mamlaka */
+            --deep-green: #003300;    /* Kijani kizito kwa ajili ya maeneo ya giza */
+            --white: #ffffff;            
+            --light-gray: #f4f7f6;            
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);        
+        }
+        html { scroll-behavior: smooth; }
+        * {            
+            margin: 0;            
+            padding: 0;            
+            box-sizing: border-box;            
+            font-family: 'Poppins', sans-serif;        
+        }
+        body {            
+            background-color: var(--white);            
+            color: var(--primary-green);            
+            line-height: 1.6;        
+        }
+        /* --- Navigation (Rangi ya Kijani iliyoiva na White) --- */        
+        header {            
+            background: var(--primary-green);            
+            padding: 15px 8%;            
+            display: flex;            
+            justify-content: space-between;            
+            align-items: center;            
+            position: sticky;            
+            top: 0;            
+            z-index: 1000;            
+            border-bottom: 4px solid var(--white);            
+            box-shadow: var(--shadow);        
+        }
+        .logo h1 {            
+            color: var(--white);            
+            font-size: 1.3rem;            
+            font-family: 'Montserrat', sans-serif;            
+            text-transform: uppercase;        
+        }
+        .logo span { color: var(--white); opacity: 0.8; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a {            
+            color: var(--white);            
+            text-decoration: none;            
+            font-weight: 600;            
+            font-size: 0.85rem;            
+            transition: 0.3s;            
+            text-transform: uppercase;        
+        }
+        nav ul li a:hover { opacity: 0.8; }
+        /* --- Hero Section na Background Image Mpya --- */        
+        .hero-section {            
+            background: linear-gradient(rgba(0, 51, 0, 0.75), rgba(0, 26, 0, 0.85)),                         
+            url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');            
+            background-size: cover;            
+            background-position: center;            
+            min-height: 80vh;            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;            
+            justify-content: center;            
+            text-align: center;            
+            padding: 60px 20px;            
+            color: white;        
+        }
+        .main-title {            
+            font-size: clamp(2rem, 5vw, 3.5rem);            
+            font-family: 'Montserrat', sans-serif;            
+            margin-bottom: 10px;            
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);        
+        }
+        .slogan {            
+            color: var(--white);            
+            font-weight: 600;            
+            letter-spacing: 2px;            
+            margin-bottom: 30px;            
+            text-transform: uppercase;        
+        }
+        /* --- Radio Card --- */        
+        .radio-card {            
+            background: rgba(255, 255, 255, 0.1);            
+            backdrop-filter: blur(15px);            
+            border: 1px solid rgba(255, 255, 255, 0.2);            
+            padding: 30px;            
+            border-radius: 30px;            
+            width: 100%;            
+            max-width: 500px;            
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);        
+        }
+        .live-badge {            
+            background: #ff0000;            
+            color: white;            
+            padding: 5px 15px;            
+            border-radius: 20px;            
+            font-size: 0.75rem;            
+            font-weight: bold;            
+            display: inline-flex;            
+            align-items: center;            
+            gap: 8px;            
+            margin-bottom: 20px;            
+            animation: pulse 2s infinite;        
+        }
+        .wave-container {            
+            display: flex;            
+            justify-content: center;            
+            align-items: flex-end;            
+            height: 40px;            
+            gap: 4px;            
+            margin-bottom: 20px;        
+        }
+        .wave-bar {            
+            width: 5px;            
+            background: var(--white);            
+            border-radius: 3px;            
+            animation: quiet 1.2s ease-in-out infinite alternate;        
+        }        
+        .wave-bar:nth-child(2) { animation-duration: 1.5s; height: 30px; }        
+        .wave-bar:nth-child(3) { animation-duration: 1.1s; height: 40px; }        
+        .wave-bar:nth-child(4) { animation-duration: 1.3s; height: 25px; }
+        @keyframes quiet { 0% { height: 10px; } 100% { height: 40px; } }        
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        /* --- About Section --- */        
+        .about-section {            
+            padding: 80px 8%;            
+            background: var(--white);            
+            text-align: center;        
+        }
+        .section-title {            
+            font-family: 'Montserrat', sans-serif;            
+            font-size: 2.2rem;            
+            margin-bottom: 40px;            
+            position: relative;            
+            display: inline-block;        
+        }
+        .section-title::after {            
+            content: '';            
+            width: 50%;            
+            height: 4px;            
+            background: var(--primary-green);            
+            position: absolute;            
+            bottom: -10px;            
+            left: 25%;        
+        }
+        .grid-container {            
+            display: grid;            
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));            
+            gap: 30px;            
+            margin-top: 20px;        
+        }
+        .info-card {            
+            background: var(--light-gray);            
+            padding: 40px;            
+            border-radius: 20px;            
+            transition: 0.3s;            
+            border-bottom: 5px solid transparent;        
+        }
+        .info-card:hover {            
+            transform: translateY(-10px);            
+            border-bottom: 5px solid var(--primary-green);            
+            box-shadow: var(--shadow);        
+        }
+        .info-card i {            
+            font-size: 3rem;            
+            color: var(--primary-green);            
+            margin-bottom: 20px;        
+        }
+        .info-card h3 {            
+            margin-bottom: 15px;            
+            font-family: 'Montserrat', sans-serif;        
+        }
+        /* --- Donation Section --- */        
+        .donate-box {            
+            padding: 80px 8%;            
+            background: var(--primary-green);            
+            color: white;            
+            text-align: center;        
+        }
+        .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .m-pesa-card {            
+            background: var(--white);            
+            color: var(--primary-green);            
+            padding: 30px;            
+            border-radius: 20px;            
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);        
+        }
+        .btn-action {            
+            background: var(--primary-green);            
+            color: white;            
+            padding: 12px 35px;            
+            border: 2px solid var(--white);            
+            border-radius: 50px;            
+            font-weight: bold;            
+            cursor: pointer;            
+            transition: 0.3s;            
+            text-transform: uppercase;            
+            margin-top: 15px;        
+        }
+        .btn-action:hover { background: var(--deep-green); transform: scale(1.05); }
+        /* --- Contact Section --- */        
+        .contact-section {            
+            padding: 80px 8%;            
+            background: var(--light-gray);            
+            text-align: center;        
+        }
+        .contact-grid {            
+            display: grid;            
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));            
+            gap: 20px;            
+            margin-top: 40px;        
+        }
+        .contact-card {            
+            background: var(--white);            
+            padding: 30px;            
+            border-radius: 15px;            
+            box-shadow: var(--shadow);            
+            transition: 0.3s;        
+        }
+        .contact-card:hover { background: var(--primary-green); color: white; }        
+        .contact-card i { font-size: 2rem; margin-bottom: 15px; color: var(--primary-green); }        
+        .contact-card:hover i { color: white; }        
+        .contact-card a { text-decoration: none; color: inherit; font-weight: 600; }
+        /* --- Footer --- */        
+        footer {            
+            background: var(--deep-green);            
+            color: white;            
+            padding: 60px 8% 20px;            
+            text-align: center;        
+        }
+        .social-icons a {            
+            color: white;            
+            font-size: 1.8rem;            
+            margin: 0 15px;            
+            transition: 0.3s;        
+        }
+        .social-icons a:hover { opacity: 0.7; }
+        @media (max-width: 768px) {            
+            header { flex-direction: column; gap: 15px; }            
+            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }        
+        }    
+    </style>
+</head>
+<body>
+    <header>        
+        <div class="logo">            
+            <h1>GOD is Love <span>FM radio</span></h1>        
+        </div>        
+        <nav>            
+            <ul>                
+                <li><a href="#home">Nyumbani</a></li>                
+                <li><a href="#about">Kuhusu Sisi</a></li>                
+                <li><a href="#live">Sikiliza</a></li>                
+                <li><a href="#donate">Sadaka / Michango</a></li>                
+                <li><a href="#contact">Mawasiliano</a></li>            
+            </ul>        
+        </nav>    
+    </header>
+
+    <section class="hero-section" id="home">        
+        <h2 class="main-title">GOD is Love FM radio</h2>        
+        <p class="slogan">Sauti ya Faraja</p>
+        <div class="radio-card" id="live">            
+            <div class="live-badge">                
+                <i class="fas fa-broadcast-tower"></i> LIVE MUBASHARA            
+            </div>                                                    
+            <div class="wave-container">                
+                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>            
+            </div>
+            <!-- Player ya Audio -->
+            <div style="background: rgb(255, 255, 255); padding: 15px; border-radius: 15px; width: 100%; display: flex; justify-content: center;">                
+                <audio controls style="width: 100%; max-width: 400px;">                    
+                    <source src="https://pastoraloyce.duckdns.org/listen/god_is_love_fm_radio/radio.mp3" type="audio/mpeg">                    
+                    Kivinjari chako hakisupport ku-play audio hii.                
+                </audio>            
+            </div>            
+            <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.9;">"SAUTI YA FARAJA"</p>        
+        </div>    
+    </section>
+
+    <section class="about-section" id="about">        
+        <h2 class="section-title">Kuhusu Huduma Yetu</h2>        
+        <div class="grid-container">            
+            <div class="info-card">                
+                <i class="fas fa-eye"></i>                
+                <h3>Maono Yetu</h3>                
+                <p>Kuwa kituo kikuu cha redio mtandaoni kinachogusa mioyo ya watu duniani kote kwa ujumbe wa matumaini, upendo na faraja.</p>            
+            </div>            
+            <div class="info-card">                
+                <i class="fas fa-bullseye"></i>                
+                <h3>Dhamira Yetu</h3>                
+                <p>Kuhubiri Injili ya kweli ya Yesu Kristo na kutoa burudani ya kiroho itakayojenga imani na kuleta faraja.</p>            
+            </div>        
+        </div>    
+    </section>
+
+    <section class="donate-box" id="donate">        
+        <h2 class="section-title" style="color: white;">Saidia Huduma Hii (Sadaka / Shukrani)</h2>        
+        <div class="donation-grid">
+            <!-- Bank Card -->
+            <div class="m-pesa-card">
+                <i class="fas fa-university" style="font-size: 3rem; color: #006400; margin-bottom: 10px;"></i>
+                <h3 style="margin: 5px 0;">NMB BANK</h3>
+                <h2 style="margin: 10px 0; font-size: 1.8rem; color: #006400; letter-spacing: 1px;">30310009041</h2>
+                <p>Jina: <strong>Boniface Andrea kamnyungu</strong></p>
+            </div>
+            <!-- Mobile Money Card -->
+            <div class="m-pesa-card">
+                <div style="display: flex; justify-content: center; gap: 20px; align-items: center; margin-bottom: 10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/M-PESA_logo.png/640px-M-PESA_logo.png" alt="M-pesa" width="80">
+                    <span style="font-weight: bold; color: #ff0000; font-size: 1.2rem;">Airtel Money</span>
+                </div>
+                <p style="margin: 5px 0;"><strong>M-Pesa:</strong> 0753783945</p>
+                <p style="margin: 5px 0;"><strong>Airtel Money:</strong> 0695499200</p>
+                <p>Jina: <strong>Boniface Andrea</strong></p>
+                <button class="btn-action" onclick="window.location.href='#contact'">Tuma Ujumbe wa Sadaka</button>
+            </div>
+        </div>    
+    </section>
+
+    <section class="contact-section" id="contact">        
+        <h2 class="section-title">Wasiliana Nasi</h2>        
+        <p>Tungependa kusikia kutoka kwako kwa ajili ya maombi, ushuhuda, ushauri au maswali.</p>                    
+        <div class="contact-grid">            
+            <div class="contact-card">                
+                <i class="fas fa-phone-alt"></i>                
+                <h3>Simu (Vodacom)</h3>                
+                <p><a href="tel:0753783945">0753 783 945</a></p>            
+            </div>            
+            <div class="contact-card">                
+                <i class="fab fa-whatsapp"></i>                
+                <h3>WhatsApp</h3>                
+                <p><a href="https://wa.me/255753783945" target="_blank">0753 783 945</a></p>            
+            </div>            
+            <div class="contact-card">                
+                <i class="fas fa-phone-alt"></i>                
+                <h3>Simu (Airtel)</h3>                
+                <p><a href="tel:0695499200">0695 499 200</a></p>            
+            </div>        
+        </div>    
+    </section>
+
+    <footer>        
+        <div class="social-icons">            
+            <a href="https://wa.me/255753783945" target="_blank"><i class="fab fa-whatsapp"></i></a>            
+            <a href="#"><i class="fab fa-facebook"></i></a>            
+            <a href="#"><i class="fab fa-youtube"></i></a>        
+        </div>        
+        <p style="margin-top: 20px;">© 2026 GOD is Love FM radio | Pastor Boniface Andrea</p>        
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Tanzania</p> 
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Designed by Pastor Aloyce     0757 344 860</p>
+    </footer>
+</body>
+</html>
